@@ -12,21 +12,21 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {  
-                bat 'docker build -t seranvishwa/appeg20203974-cuban:%BUILD_NUMBER% .'
+                bat 'docker build -t seranvishwa/appeg20204222-cuban:%BUILD_NUMBER% .'
             }
         }
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'docker-test3974', variable: 'dockertest')]) {
+                withCredentials([string(credentialsId: '4222-dockerpassword', variable: '4222dockerhubpass')]) {
                     script{
-                        bat'docker login -u seranvishwa -p %dockertest%'
+                        bat'docker login -u seranvishwa -p %4222dockerhubpass%'
                     }
                 }
             }
         }
         stage('Push Image') {
             steps {
-                bat 'docker push seranvishwa/appeg20203974-cuban:%BUILD_NUMBER%'
+                bat 'docker push seranvishwa/appeg20204222-cuban:%BUILD_NUMBER%'
             }
         }
     }
