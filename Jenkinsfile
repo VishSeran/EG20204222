@@ -6,7 +6,7 @@ pipeline {
         stage('SCM Checkout') {
             steps {
                 retry(3) {
-                    git branch: 'main', url: 'https://github.com/uvini3974/EG20203974'
+                    git branch: 'main', url: 'https://github.com/VishSeran/EG20204222'
                 }
             }
         }
